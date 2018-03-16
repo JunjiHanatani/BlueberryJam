@@ -1,3 +1,7 @@
+*.[oa] 
+*~ 
+*.pyc
+
 /baxter           
 /baxter_interface       
 /baxter_tools

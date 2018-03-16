@@ -2,11 +2,3 @@
 *~ 
 *.pyc
 
-/baxter           
-/baxter_interface       
-/baxter_tools
-/baxter_common    
-/CMakeLists.txt
-/baxter_examples  
-/baxter_simulator         
-/usb_cam

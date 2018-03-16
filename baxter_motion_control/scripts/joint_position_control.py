@@ -114,7 +114,7 @@ class JointPositionController(object):
         self.q_goal = self.inverse_kinematics(goal_position)
 
         rate = rospy.Rate(self._rate)
-        start = rospy.Time.now()
+        #start = rospy.Time.now()
 
         # Function: make desired positions along a straight line
         # between q_current and q_goal. The length the robot moves
@@ -150,7 +150,6 @@ class JointPositionController(object):
 #            self._right_arm.set_joint_velocities(cmd)
             rate.sleep()
 
-
 def main():
 
     print("Initializing node... ")
@@ -159,9 +158,9 @@ def main():
     # Set a goal position
     # (This should be replaced with data from the kinect in the future)
     q = tf.transformations.quaternion_from_euler(0.0, math.pi, 0.0, axes='sxyz')
-    goal_position = {'x':0.7,
+    goal_position = {'x':1.0,
                      'y':0.0,
-                     'z':0.0,
+                     'z':-0.2,
                      'rotx':q[0],
                      'roty':q[1],
                      'rotz':q[2],
@@ -170,7 +169,6 @@ def main():
     jpc = JointPositionController()
     rospy.on_shutdown(jpc.clean_shutdown)
     jpc.move(goal_position)
-
     print("Done.")
 
 if __name__ == '__main__':
